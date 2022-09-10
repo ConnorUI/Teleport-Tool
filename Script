@@ -1,0 +1,151 @@
+local CoordsFinderUI = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local PositionX = Instance.new("TextLabel")
+local CopyPosition = Instance.new("TextButton")
+local CreateScript = Instance.new("TextButton")
+local PositionY = Instance.new("TextLabel")
+local PositionZ = Instance.new("TextLabel")
+
+CoordsFinderUI.Name = "CoordsFinderUI"
+CoordsFinderUI.Parent = game.CoreGui
+CoordsFinderUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = CoordsFinderUI
+Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.395709187, 0, 0.390243888, 0)
+Main.Size = UDim2.new(0, 350, 0, 180)
+Main.Active = true
+Main.Draggable = true
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(1, 0, 0, 35)
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.0285714287, 0, 0.171428576, 0)
+Title.Size = UDim2.new(0, 250, 0, 25)
+Title.Font = Enum.Font.JosefinSans
+Title.Text = "Teleport Script Tool v1"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+Close.Name = "Close"
+Close.Parent = Top
+Close.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.912500024, 0, 0.0571428575, 0)
+Close.Size = UDim2.new(0, 30, 0, 30)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextScaled = true
+Close.TextSize = 14.000
+Close.TextWrapped = true
+Close.MouseButton1Down:Connect(function()
+	wait(0.2)
+	CoordsFinderUI:Destroy()
+end)
+
+PositionX.Name = "PositionX"
+PositionX.Parent = Main
+PositionX.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+PositionX.BorderSizePixel = 0
+PositionX.Position = UDim2.new(0, 10, 0, 50)
+PositionX.Size = UDim2.new(0, 100, 0, 30)
+PositionX.Font = Enum.Font.SourceSans
+PositionX.Text = ""
+PositionX.TextColor3 = Color3.fromRGB(255, 255, 255)
+PositionX.TextSize = 25.000
+PositionX.TextWrapped = true
+
+CopyPosition.Name = "CopyPosition"
+CopyPosition.Parent = Main
+CopyPosition.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+CopyPosition.BorderSizePixel = 0
+CopyPosition.Position = UDim2.new(0, 180, 0, 100)
+CopyPosition.Size = UDim2.new(0, 160, 0, 30)
+CopyPosition.Font = Enum.Font.SourceSans
+CopyPosition.Text = "Copy Position"
+CopyPosition.TextColor3 = Color3.fromRGB(255, 255, 255)
+CopyPosition.TextSize = 22.000
+CopyPosition.TextWrapped = true
+CopyPosition.MouseButton1Down:Connect(function()
+	setclipboard(tostring(PositionX.Text..", "..PositionY.Text..", "..PositionZ.Text))
+end)
+
+CreateScript.Name = "CreateScript"
+CreateScript.Parent = Main
+CreateScript.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+CreateScript.BorderSizePixel = 0
+CreateScript.Position = UDim2.new(0, 10, 0, 100)
+CreateScript.Size = UDim2.new(0, 160, 0, 30)
+CreateScript.Font = Enum.Font.SourceSans
+CreateScript.Text = "Create Teleport Script"
+CreateScript.TextColor3 = Color3.fromRGB(255, 255, 255)
+CreateScript.TextSize = 20.000
+CreateScript.TextWrapped = true
+CreateScript.MouseButton1Down:Connect(function()
+	setclipboard(tostring("game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new("..PositionX.Text..", "..PositionY.Text..", "..PositionZ.Text..")"))
+end)
+
+PositionY.Name = "PositionY"
+PositionY.Parent = Main
+PositionY.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+PositionY.BorderSizePixel = 0
+PositionY.Position = UDim2.new(0, 125, 0, 50)
+PositionY.Size = UDim2.new(0, 100, 0, 30)
+PositionY.Font = Enum.Font.SourceSans
+PositionY.Text = ""
+PositionY.TextColor3 = Color3.fromRGB(255, 255, 255)
+PositionY.TextSize = 25.000
+PositionY.TextWrapped = true
+
+PositionZ.Name = "PositionZ"
+PositionZ.Parent = Main
+PositionZ.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+PositionZ.BorderSizePixel = 0
+PositionZ.Position = UDim2.new(0, 240, 0, 50)
+PositionZ.Size = UDim2.new(0, 100, 0, 30)
+PositionZ.Font = Enum.Font.SourceSans
+PositionZ.Text = ""
+PositionZ.TextColor3 = Color3.fromRGB(255, 255, 255)
+PositionZ.TextSize = 25.000
+PositionZ.TextWrapped = true
+
+local function GMFAW_fake_script()
+	local script = Instance.new('LocalScript', CoordsFinderUI)
+
+	local UI = script.Parent.Parent.CoordsFinderUI
+	local Main = UI.Main
+	local PosX = Main.PositionX
+	local PosY = Main.PositionY
+	local PosZ = Main.PositionZ
+	
+	function Count(Value)
+		return math.floor( (Value * 10^2) + 0.5) / (10^2)
+	end
+	
+	while true do
+		PosX.Text = game.Players.LocalPlayer.Character.Head.Position.X
+		PosY.Text = game.Players.LocalPlayer.Character.Head.Position.Y
+		PosZ.Text = game.Players.LocalPlayer.Character.Head.Position.Z
+		wait(0.1)
+	end
+end
+
+coroutine.wrap(GMFAW_fake_script)()
